@@ -1,60 +1,84 @@
+// short cut: d + cmd + click | down arrow
+// clg + enter is console log
 
-// short cut: d + cmd + click | down arrow  
-// clg + enter is console log 
-function saveTask(){
+// gettting user values
 
-    console.log('Task manager...',);
+function saveTask() {
+  console.log("Task manager...");
 
-const title = $('#txtTitle').val();
-const description = $('#txtDescription').val();
-const color = $('#txtColor').val();
-const date = $('#txtDate').val();
-const status = $('#selStatus').val();
-const budget = $('#numBudget').val();
-console.log('',title, description, color, date, status, budget);
+  const title = $("#txtTitle").val();
+  const description = $("#txtDescription").val();
+  const color = $("#txtColor").val();
+  const date = $("#txtDate").val();
+  const status = $("#selStatus").val();
+  const budget = $("#numBudget").val();
+  console.log("", title, description, color, date, status, budget);
 
-let taskSave = new Task(title, description, color, date, status, budget);
-console.log('',taskSave);
-// save to server 
+  // creating an object
+  let taskSave = new Task(title, description, color, date, status, budget);
+  console.log("", taskSave);
 
-$.ajax({    
-    type: 'POST',
-    url:'http://fsdiapi.azurewebsites.net/api/tasks/',
+  // save to server (post)
+
+  $.ajax({
+    type: "POST",
+    url: "http://fsdiapi.azurewebsites.net/api/tasks/",
     data: JSON.stringify(taskSave),
-    contentType: 'application/json',
-    success: function(response) {
-        console.log('',response)
+    contentType: "application/json",
+    success: function (response) {
+      console.log("", response);
     },
-    error: function(error) {
-        console.log('',error);
-    }
-});
+    error: function (error) {
+      console.log("", error);
+    },
+  });
+  displayTask(taskSave);
 
-// $.ajax({
-//     type: "post",
-//     url: "http://fsdiapi.azurewebsites.net/api/tasks/",
-//     data: JSON.stringify(taskSave),
-//     contentType: "application/json",
-//     success: function (response) {
-//       console.log(response)
-//     },
-//     error: function (error) {
-//       console.log(error)
-//     }
-//   });
-
-
+  // $.ajax({
+  //     type: "post",
+  //     url: "http://fsdiapi.azurewebsites.net/api/tasks/",
+  //     data: JSON.stringify(taskSave),
+  //     contentType: "application/json",
+  //     success: function (response) {
+  //       console.log(response)
+  //     },
+  //     error: function (error) {
+  //       console.log(error)
+  //     }
+  //   });
 }
 
+// save to server (get)
 
+function displayTask(task) {
+  //   let syntax = "<h3> Im a task </h3>";
+  //   let syntax = `<h3> ${task.title} </h3>
+  //         <tr>
+  //         <td>${task.description}</td>
+  //         <td>${task.status}</td>
+  //         <td>${task.date}</td>
+  //         </tr>`;
 
+  let syntax = `
+        <div class = "task" style = "border-color: ${task.color}">
+             <div class = "info">
+             <h5> ${task.title} </h5>
+             <p> ${task.description} </p>
+             </div>
+        
+        <div class = "status"> ${task.status}</div>
+        <div class = "date-budget">
+        <span> ${task.date}</span>
+        <span> ${task.budget}</span>
+        </div>
+        </div>
+        `;
 
-function init(){
-
-$('#btnSave').click(saveTask)
-
+  $("#list").append(syntax);
 }
 
+function init() {
+  $("#btnSave").click(saveTask);
+}
 
-
-window.onload = init; 
+window.onload = init;

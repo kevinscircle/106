@@ -1,10 +1,17 @@
 class Task {
-    constructor (d, desc, color, date, status, budget){
+    constructor (title, desc, color, date, status, budget){
         this.title = title;
-        this.desc = desc;
+        this.description = desc;
         this.color = color;
         this.date = date;
         this.status = status;
         this.budget = budget;
     }
 }
+
+
+
+
+// clean code principle 
+
+    // single responsability principle 
