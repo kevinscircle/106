@@ -23,9 +23,10 @@
     </h1>
 
     <main>
-      <section id="list" class="border bg-primary bg-opacity-10">
+      <section id="list" class="border bg-primary bg-opacity-10 overflow-auto">
         Get Section
       </section>
+
       <section id="form" class="border">
         <div class="mt-2">
           <label for="txtTitle" class="form-label">Title</label>
@@ -56,7 +57,7 @@
           <select id="selStatus" class="form-select">
             <option>New</option>
             <option>In Progress</option>
-            <option >Completed</option>
+            <option>Completed</option>
           </select>
         </div>
 
@@ -69,11 +70,14 @@
           <button id="btnSave" class="btn btn-primary">Save</button>
         </div>
       </section>
+
     </main>
-    <script   src="https://code.jquery.com/jquery-3.7.1.js"   integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="   crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
     <script src="./scripts/task.js"></script>
     <script src="./scripts/taskManager.js"></script>
-    
   </body>
-
 </html>

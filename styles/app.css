@@ -1,16 +1,20 @@
-*{
+/*#region*/
+
+/*#endregion*/
+
+
+
+/*#region ALl*/
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/*#endregion*/
 
 
-/* body {
-    background-color: skyblue !important;
-} */
-
-
+/*#region main data*/
 main {
 
     height: 100vh;
@@ -27,26 +31,42 @@ section {
 
 
 #list {
-  
+
     flex: 2;
+    border-radius: 30px;
+    margin-right: 30px;
+
+
 }
 
 #form {
-    
+
     flex: 1;
+    border-radius: 30px;
+    min-height: 700px;
+
 }
 
+/*#endregion*/
 
 
 
-/* get section  */
 
+/*#region Get Section*/
 
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
 .task {
     margin: 10px 20px;
     padding: 10px;
     display: flex;
-    border: 1px solid #333;
+    border-left: 9px solid #333;
+
+    border-radius: 20px;
+    opacity: .75;
+    background-color: white;
 
 }
 
@@ -59,6 +79,8 @@ section {
     flex: 1;
 }
 
-.task .date-budget{
+.task .date-budget {
     flex: 1;
 }
+
+/*#endregion*/
